@@ -239,7 +239,7 @@ class Purecharity_Wp_Base {
   /**
    * Initializes the API settings.
    *
-   * @since    1.0.0
+   * @since    1.0.0sa
    */
   private function init_api() {
     $pure_base_options = get_option( 'pure_base_settings' );
