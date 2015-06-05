@@ -16,7 +16,7 @@
  * Plugin Name:       Pure Charity Base
  * Plugin URI:        http://purecharity.com/
  * Description:       The base plugin for Pure Charity API integration
- * Version:           1.0.1
+ * Version:           1.0.3
  * Author:            Pure Charity
  * Author URI:        http://purecharity.com
  * License:           GPL-2.0+
@@ -87,4 +87,33 @@ function pluralize($count, $singular, $plural = false)
 {
   if (!$plural) $plural = $singular . 's';
   return ($count == 1 ? $singular : $plural) ;
+}
+
+/*
+ * Plugin updater using GitHub
+ *
+ * Auto Updates through GitHub
+ *
+ * @since   1.0.2
+ */
+add_action( 'init', 'purecharity_wp_base_updater' );
+function purecharity_wp_base_updater() {
+  include_once 'includes/purecharity-wp-base-updater.php';
+  define( 'WP_GITHUB_FORCE_UPDATE', true );
+  if ( is_admin() ) { // note the use of is_admin() to double check that this is happening in the admin
+    $config = array(
+      'slug' => plugin_basename( __FILE__ ),
+      'proper_folder_name' => 'purecharity-wp-base',
+      'api_url' => 'https://api.github.com/repos/purecharity/pure-base',
+      'raw_url' => 'https://raw.github.com/purecharity/pure-base/master',
+      'github_url' => 'https://github.com/purecharity/pure-base',
+      'zip_url' => 'https://github.com/purecharity/pure-base/archive/master.zip',
+      'sslverify' => true,
+      'requires' => '3.0',
+      'tested' => '3.3',
+      'readme' => 'README.md',
+      'access_token' => '',
+    );
+    new WP_GitHub_Updater( $config );
+  }
 }
