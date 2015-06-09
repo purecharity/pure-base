@@ -16,7 +16,7 @@
  * Plugin Name:       Pure Charity Base
  * Plugin URI:        http://purecharity.com/
  * Description:       The base plugin for Pure Charity API integration
- * Version:           1.0.4
+ * Version:           1.0.5
  * Author:            Pure Charity
  * Author URI:        http://purecharity.com
  * License:           GPL-2.0+
@@ -94,11 +94,11 @@ function pluralize($count, $singular, $plural = false)
  *
  * Auto Updates through GitHub
  *
- * @since   1.0.2
+ * @since   1.0.3
  */
 add_action( 'init', 'purecharity_wp_base_updater' );
 function purecharity_wp_base_updater() {
-  include_once 'includes/purecharity-wp-base-updater.php';
+  include_once 'includes/purecharity-wp-base-updater.class.php';
   define( 'WP_GITHUB_FORCE_UPDATE', true );
   if ( is_admin() ) { // note the use of is_admin() to double check that this is happening in the admin
     $config = array(
