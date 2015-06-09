@@ -4,6 +4,7 @@ Pure Base Plugin created based on the Official WordPress Plugin Boilerplate.
 
 Please refer to `/purecharity-wp-base/trunk/README.txt` for details.
 
+~Current Version:1.0.3~
 
 # Installation
 
