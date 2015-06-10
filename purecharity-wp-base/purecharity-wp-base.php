@@ -16,7 +16,7 @@
  * Plugin Name:       Pure Charity Base
  * Plugin URI:        http://purecharity.com/
  * Description:       The base plugin for Pure Charity API integration
- * Version:           1.0.5
+ * Version:           1.0.6
  * Author:            Pure Charity
  * Author URI:        http://purecharity.com
  * License:           GPL-2.0+
