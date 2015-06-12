@@ -73,7 +73,7 @@ class WP_GitHub_Updater {
       'sslverify' => true,
       'access_token' => '',
     );
-
+    
     $this->config = wp_parse_args( $config, $defaults );
 
     // if the minimum config isn't set, issue a warning and bail
@@ -85,7 +85,7 @@ class WP_GitHub_Updater {
     }
 
     $this->set_defaults();
-
+    
     add_filter( 'pre_set_site_transient_update_plugins', array( $this, 'api_check' ) );
 
     // Hook into the plugin details screen

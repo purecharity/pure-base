@@ -1,7 +1,5 @@
 # Pure Charity Base Plugin
 
-Version: 1.0.6
-
 Pure Base Plugin created based on the Official WordPress Plugin Boilerplate.
 
 Please refer to `/purecharity-wp-base/trunk/README.txt` for details.
