@@ -146,22 +146,6 @@ class Purecharity_Wp_Base_Public {
 	}
 
 	/**
-	 * Iframe for external actions.
-	 *
-	 * @since    1.0.1
-	 */
-	public static function iframe_actions(){
-		return '
-			<div class="pc-backdrop">
-				<a href="#" class="pc-iframe-close"><b>x</b> close</a>
-				<div class="pc-iframe-donate">
-					<iframe id="pc-iframe" src=""></iframe>
-				</div>
-			</div>
-		';
-	}
-
-	/**
 	 * Not found layout for single display.
 	 *
 	 * @since    1.0.1
