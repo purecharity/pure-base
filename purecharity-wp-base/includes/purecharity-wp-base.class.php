@@ -247,10 +247,14 @@ class Purecharity_Wp_Base {
     self::$api_key = $pure_base_options['api_key'];
 
     if ('production' == $mode) {
-        self::$api_url = "http://purecharity.com/api/";
-      } else {
-        self::$api_url = "http://staging.purecharity.com/api/";
-      }
+      self::$api_url = "http://purecharity.com/api/";
+    } else {
+      self::$api_url = "http://staging.purecharity.com/api/";
+
+      // Local testing
+      self::$api_url = "http://purecharity.ngrok.com/api/";
+      self::$api_key = "5ccccb32e8e1e70e49d22ec3dae75544";
+    }
   }
 
   /**
