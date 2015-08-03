@@ -250,10 +250,6 @@ class Purecharity_Wp_Base {
       self::$api_url = "http://purecharity.com/api/";
     } else {
       self::$api_url = "http://staging.purecharity.com/api/";
-
-      // Local testing
-      self::$api_url = "http://purecharity.ngrok.com/api/";
-      self::$api_key = "5ccccb32e8e1e70e49d22ec3dae75544";
     }
   }
 
