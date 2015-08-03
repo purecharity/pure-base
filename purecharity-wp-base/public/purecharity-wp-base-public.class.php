@@ -154,9 +154,9 @@ class Purecharity_Wp_Base_Public {
 		$pure_base_options = get_option( 'pure_base_settings' );
 		$mode = $pure_base_options['mode'];
 		if($mode == 'production'){
-			return 'https://purecharity.com';
+			return 'http://purecharity.com';
 		}else{
-			return 'https://staging.purecharity.com';
+			return 'http://staging.purecharity.com';
 		}
 	}
 }
