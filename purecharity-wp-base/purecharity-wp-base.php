@@ -16,7 +16,7 @@
  * Plugin Name:       Pure Charity Base
  * Plugin URI:        http://purecharity.com/
  * Description:       The base plugin for Pure Charity API integration
- * Version:           1.0.5
+ * Version:           1.0.8
  * Author:            Pure Charity
  * Author URI:        http://purecharity.com
  * License:           GPL-2.0+
@@ -34,6 +34,11 @@ if ( ! defined( 'WPINC' ) ) {
  * The code that runs during plugin activation.
  */
 require_once plugin_dir_path( __FILE__ ) . 'includes/purecharity-wp-base-template-tags-helper.php';
+
+/**
+ * The GitHub updater.
+ */
+require_once plugin_dir_path( __FILE__ ) . 'includes/purecharity-wp-base-updater.class.php';
 
 /**
  * The code that runs during plugin activation.
@@ -98,14 +103,13 @@ function pluralize($count, $singular, $plural = false)
  */
 add_action( 'init', 'purecharity_wp_base_updater' );
 function purecharity_wp_base_updater() {
-  include_once 'includes/purecharity-wp-base-updater.class.php';
   define( 'WP_GITHUB_FORCE_UPDATE', true );
   if ( is_admin() ) { // note the use of is_admin() to double check that this is happening in the admin
     $config = array(
       'slug' => plugin_basename( __FILE__ ),
       'proper_folder_name' => 'purecharity-wp-base',
       'api_url' => 'https://api.github.com/repos/purecharity/pure-base',
-      'raw_url' => 'https://raw.github.com/purecharity/pure-base/master',
+      'raw_url' => 'https://raw.githubusercontent.com/purecharity/pure-base/master/purecharity-wp-base/',
       'github_url' => 'https://github.com/purecharity/pure-base',
       'zip_url' => 'https://github.com/purecharity/pure-base/archive/master.zip',
       'sslverify' => true,
