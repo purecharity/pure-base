@@ -16,7 +16,7 @@
  * Plugin Name:       Pure Charity Base
  * Plugin URI:        http://purecharity.com/
  * Description:       The base plugin for Pure Charity API integration
- * Version:           1.0.8
+ * Version:           1.0.9
  * Author:            Pure Charity
  * Author URI:        http://purecharity.com
  * License:           GPL-2.0+
@@ -50,13 +50,13 @@ require_once plugin_dir_path( __FILE__ ) . 'includes/purecharity-wp-base-activat
  */
 require_once plugin_dir_path( __FILE__ ) . 'includes/purecharity-wp-base-deactivator.class.php';
 
-/** 
- * This action is documented in includes/purecharity-wp-base-activator.class.php 
+/**
+ * This action is documented in includes/purecharity-wp-base-activator.class.php
  */
 register_activation_hook( __FILE__, array( 'Purecharity_Wp_Base_Activator', 'activate' ) );
 
-/** 
- * This action is documented in includes/purecharity-wp-base-deactivator.class.php 
+/**
+ * This action is documented in includes/purecharity-wp-base-deactivator.class.php
  */
 register_deactivation_hook( __FILE__, array( 'Purecharity_Wp_Base_Deactivator', 'deactivate' ) );
 

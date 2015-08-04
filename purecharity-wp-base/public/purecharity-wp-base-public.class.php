@@ -98,7 +98,7 @@ class Purecharity_Wp_Base_Public {
 		if($text != ''){ $facebook_url .= '&p[summary]='.$text; }
 		if($image != ''){ $facebook_url .= '&p[image]='.$image; }
 
-		$widgets = array(); 
+		$widgets = array();
 		$widgets['facebook'] = '
 			<a href="'.$facebook_url.'">
 				<img src="'.plugins_url( '/img/facebook.png' , __FILE__ ).'" />
@@ -154,9 +154,9 @@ class Purecharity_Wp_Base_Public {
 		$pure_base_options = get_option( 'pure_base_settings' );
 		$mode = $pure_base_options['mode'];
 		if($mode == 'production'){
-			return 'http://purecharity.com';
+			return 'https://purecharity.com';
 		}else{
-			return 'http://staging.purecharity.com';
+			return 'https://staging.purecharity.com';
 		}
 	}
 }

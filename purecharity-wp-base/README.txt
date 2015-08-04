@@ -43,6 +43,9 @@ directory take precedence. For example, `/assets/screenshot-1.png` would win ove
 
 == Changelog ==
 
+= 1.0.9 =
+* Minor update to avoid certificate error on redirect.
+
 = 1.0.7 =
 * Remove the iframe opening option.
 
