@@ -1,1 +1,15 @@
 .text-centered { text-align: center; }
+
+.poweredby {
+  float: left;
+  width: 100%;
+  text-align: center;
+}
+
+.poweredby img {
+  width: 65px;
+  margin-top: 20px;
+  height: auto;
+  background: none !important;
+  box-shadow: none !important;
+}

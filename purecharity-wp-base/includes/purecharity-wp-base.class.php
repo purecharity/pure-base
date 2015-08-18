@@ -275,7 +275,7 @@ class Purecharity_Wp_Base {
     if ($response) {
       $response = json_decode($response);
     }
-    
+
     return $response;
   }
 
