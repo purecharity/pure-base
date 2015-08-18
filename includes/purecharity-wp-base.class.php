@@ -251,6 +251,7 @@ class Purecharity_Wp_Base {
     } else {
       self::$api_url = "http://staging.purecharity.com/api/";
     }
+
   }
 
   /**
@@ -275,7 +276,7 @@ class Purecharity_Wp_Base {
     if ($response) {
       $response = json_decode($response);
     }
-    
+
     return $response;
   }
 
