@@ -8,7 +8,7 @@
 
 .poweredby img {
   width: 65px;
-  margin-top: 20px;
+  margin: 20px auto;
   height: auto;
   background: none !important;
   box-shadow: none !important;
