@@ -80,7 +80,7 @@ class Purecharity_Wp_Base_Public {
 	public static function powered_by(){
 		return '
 			<div class="poweredby">
-          		<a href="https://purecharity.com/nonprofits/"><img align="center" src="' . plugins_url( '/img/purecharity-hope.png' , __FILE__ ) . '" ></a>
+          		<a href="https://purecharity.com/nonprofits/">Powered by Pure Charity</a>
       		</div>
 		';
 	}
