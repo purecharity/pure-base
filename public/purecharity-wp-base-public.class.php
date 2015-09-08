@@ -94,9 +94,6 @@ class Purecharity_Wp_Base_Public {
 		$current_url = $_SERVER["HTTP_HOST"].$_SERVER["REQUEST_URI"];
 
 		$facebook_url = 'https://www.facebook.com/sharer.php?p[url]='.self::current_page_url();
-		if($title != ''){ $facebook_url .= '&p[title]='.$title; }
-		if($text != ''){ $facebook_url .= '&p[summary]='.$text; }
-		if($image != ''){ $facebook_url .= '&p[image]='.$image; }
 
 		$widgets = array();
 		$widgets['facebook'] = '

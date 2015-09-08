@@ -270,7 +270,21 @@ class Purecharity_Wp_Base {
     );
 
     $context = stream_context_create($headers);
-    $response = file_get_contents(self::$api_url . $endpoint, false, $context);
+
+    if(ini_get('allow_url_fopen')){
+      $response = file_get_contents(self::$api_url . $endpoint, false, $context);
+    }else{
+      $headers = array();
+      $headers[] = "Authorization: Token token=\"". self::$api_key ."\"\r\n";
+
+      $ch = curl_init();
+      curl_setopt($ch, CURLOPT_URL, self::$api_url . $endpoint);
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+      curl_setopt($ch, CURLOPT_HEADER, true);
+      curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+      $response = curl_exec($ch);
+      curl_close($ch);
+    }
 
     if ($response) {
       $response = json_decode($response);
