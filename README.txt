@@ -43,6 +43,9 @@ directory take precedence. For example, `/assets/screenshot-1.png` would win ove
 
 == Changelog ==
 
+= 1.1 =
+* Updated the API calls to use https.
+
 = 1.0.9 =
 * Minor update to avoid certificate error on redirect.
 
