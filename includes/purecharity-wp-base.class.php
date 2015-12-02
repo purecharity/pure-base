@@ -252,8 +252,8 @@ class Purecharity_Wp_Base {
       self::$api_url = "https://staging.purecharity.com/api/";
     }
 
-    // self::$api_url = 'http://purecharity.ngrok.com/api/';
-    // self::$api_key = '5ccccb32e8e1e70e49d22ec3dae75544';
+    self::$api_url = 'http://purecharity.ngrok.com/api/';
+    self::$api_key = '5ccccb32e8e1e70e49d22ec3dae75544';
   }
 
   /**
@@ -265,18 +265,19 @@ class Purecharity_Wp_Base {
   public function api_call($endpoint) {
     $response = false;
 
-    $headers = array(
-      'http' => array(
-        'method' => 'GET',
-        'header' => "Authorization: Token token=\"". self::$api_key ."\"\r\n"
-      )
-    );
-
-    $context = stream_context_create($headers);
-
     if(ini_get('allow_url_fopen')){
+
+      $headers = array(
+        'http' => array(
+          'method' => 'GET',
+          'header' => "Authorization: Token token=\"". self::$api_key ."\"\r\n"
+        )
+      );
+      $context = stream_context_create($headers);
       $response = file_get_contents(self::$api_url . $endpoint, false, $context);
+
     }else{
+
       $headers = array();
       $headers[] = "Authorization: Token token=\"". self::$api_key ."\"\r\n";
 
@@ -287,6 +288,7 @@ class Purecharity_Wp_Base {
       curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
       $response = curl_exec($ch);
       curl_close($ch);
+
     }
 
     if ($response) {

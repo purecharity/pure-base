@@ -97,7 +97,7 @@ class Purecharity_Wp_Base_Public {
 
 		$widgets = array();
 		$widgets['facebook'] = '
-			<a href="'.$facebook_url.'">
+			<a style="float:left;" href="'.$facebook_url.'">
 				<img src="'.plugins_url( '/img/facebook.png' , __FILE__ ).'" />
 			</a>
 		';
