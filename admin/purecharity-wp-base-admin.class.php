@@ -128,6 +128,7 @@ class Purecharity_Wp_Base_Admin {
 		<select name="pure_base_settings[mode]">
       <option value="sandbox" <?php @selected( $options['mode'], 'sandbox' ); ?> >Sandbox</option>
       <option value="production" <?php @selected( $options['mode'], 'production' ); ?> >Production</option>
+      <option value="development" <?php @selected( $options['mode'], 'development' ); ?> >Development</option>
 		</select>
 
 	<?php
