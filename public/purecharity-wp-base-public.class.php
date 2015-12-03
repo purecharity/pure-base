@@ -152,8 +152,10 @@ class Purecharity_Wp_Base_Public {
 		$mode = $pure_base_options['mode'];
 		if($mode == 'production'){
 			return 'https://purecharity.com';
-		}else{
+		}elseif('sandbox' == $mode){
 			return 'https://staging.purecharity.com';
+		}else{
+			return $_ENV["API_URL"];
 		}
 	}
 }
