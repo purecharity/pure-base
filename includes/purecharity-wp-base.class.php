@@ -265,18 +265,19 @@ class Purecharity_Wp_Base {
   public function api_call($endpoint) {
     $response = false;
 
-    $headers = array(
-      'http' => array(
-        'method' => 'GET',
-        'header' => "Authorization: Token token=\"". self::$api_key ."\"\r\n"
-      )
-    );
-
-    $context = stream_context_create($headers);
-
     if(ini_get('allow_url_fopen')){
+
+      $headers = array(
+        'http' => array(
+          'method' => 'GET',
+          'header' => "Authorization: Token token=\"". self::$api_key ."\"\r\n"
+        )
+      );
+      $context = stream_context_create($headers);
       $response = file_get_contents(self::$api_url . $endpoint, false, $context);
+
     }else{
+
       $headers = array();
       $headers[] = "Authorization: Token token=\"". self::$api_key ."\"\r\n";
 
@@ -287,6 +288,7 @@ class Purecharity_Wp_Base {
       curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
       $response = curl_exec($ch);
       curl_close($ch);
+
     }
 
     if ($response) {

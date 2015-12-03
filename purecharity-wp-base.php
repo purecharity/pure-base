@@ -16,7 +16,7 @@
  * Plugin Name:       Pure Charity Base
  * Plugin URI:        http://purecharity.com/
  * Description:       The base plugin for Pure Charity API integration
- * Version:           1.1
+ * Version:           1.2
  * Author:            Pure Charity
  * Author URI:        http://purecharity.com
  * License:           GPL-2.0+
@@ -121,3 +121,26 @@ function purecharity_wp_base_updater() {
     new WP_GitHub_Updater( $config );
   }
 }
+
+/**
+ * Returns the Base plugin file path
+ *
+ * @since    1.2
+ */
+function purecharity_plugin_template(){
+  return plugin_dir_path( __FILE__ ) . 'public/partials/purecharity-plugin-template.php';
+}
+
+/**
+ * Returns the usable page templates and injects the custom template
+ *
+ * @since    1.2
+ */
+function purecharity_get_templates(){
+  $templates = get_page_templates();
+  $templates['[Plugin Template] Default single view'] = 'purecharity-plugin-template.php';
+  return $templates;
+}
+
+
+    
