@@ -6,10 +6,7 @@ Template Name: Custom Purecharity Template
   get_template_part( 'head'); 
 ?>
 
-  <div class="wide-container">
-    <div class="container">
-      <div class="row">
-        <div class="page-content col span_24">
+
           <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
           <div class="post-body">
             <?php 
@@ -40,11 +37,7 @@ Template Name: Custom Purecharity Template
           </div>
           <?php endwhile; else: ?>
           <?php _e('Sorry, no posts matched your criteria.'); ?>
-          <?php endif; ?>
-        </div>
-        
-      </div><!-- end row-->
-    </div> <!-- end container-->
-  </div> 
+          <?php endif; ?>        
+ 
 
 <?php get_footer() ?>

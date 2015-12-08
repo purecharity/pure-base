@@ -13,3 +13,7 @@
   background: none !important;
   box-shadow: none !important;
 }
+
+.pure_col[class*="span"] {
+	margin-left: 0 !important; 
+}
