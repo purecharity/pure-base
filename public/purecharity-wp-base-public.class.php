@@ -154,6 +154,8 @@ class Purecharity_Wp_Base_Public {
 			return 'https://purecharity.com';
 		}elseif('sandbox' == $mode){
 			return 'https://staging.purecharity.com';
+		}elseif('demo' == $mode){
+			return 'https://demo.purecharity.com';
 		}else{
 			return $_ENV["API_URL"];
 		}
