@@ -247,12 +247,14 @@ class Purecharity_Wp_Base {
     self::$api_key = $pure_base_options['api_key'];
 
     if ('production' == $mode) {
-      self::$api_url = "https://purecharity.com/api/";
+      self::$api_url = "http://purecharity.com/api/";
     } elseif('sandbox' == $mode) {
       self::$api_url = "https://staging.purecharity.com/api/";
+    } elseif('demo' == $mode) {
+      self::$api_url = "https://demo.purecharity.com/api/";
     } else {
       self::$api_url = $_ENV["API_URL"];
-    }
+    }          
 
   }
 
@@ -286,6 +288,7 @@ class Purecharity_Wp_Base {
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
       curl_setopt($ch, CURLOPT_HEADER, true);
       curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+      curl_setopt($ch, CURLOPT_SSLVERSION, 3); 
       $response = curl_exec($ch);
       curl_close($ch);
 
