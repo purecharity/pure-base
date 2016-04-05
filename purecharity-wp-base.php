@@ -98,7 +98,7 @@ function pluralize($count, $singular, $plural = false)
 /**
  * Text truncating alias
  *
- * @since    1.0.0
+ * @since    1.3.1
  */
 function truncate($text, $chars = 25) {
     $text = $text." ";
