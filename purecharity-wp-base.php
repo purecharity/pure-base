@@ -94,6 +94,20 @@ function pluralize($count, $singular, $plural = false)
   return ($count == 1 ? $singular : $plural) ;
 }
 
+
+/**
+ * Text truncating alias
+ *
+ * @since    1.3.1
+ */
+function truncate($text, $chars = 25) {
+    $text = $text." ";
+    $text = substr($text,0,$chars);
+    $text = substr($text,0,strrpos($text,' '));
+    $text = $text."...";
+    return $text;
+}
+
 /*
  * Plugin updater using GitHub
  *
