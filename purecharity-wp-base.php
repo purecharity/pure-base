@@ -16,7 +16,7 @@
  * Plugin Name:       Pure Charity Base
  * Plugin URI:        http://purecharity.com/
  * Description:       The base plugin for Pure Charity API integration
- * Version:           1.3.1
+ * Version:           1.3.2
  * Author:            Pure Charity
  * Author URI:        http://purecharity.com
  * License:           GPL-2.0+
@@ -100,13 +100,20 @@ function pluralize($count, $singular, $plural = false)
  *
  * @since    1.3.1
  */
-function truncate($text, $chars = 25) {
-    $text = $text." ";
-    $text = substr($text,0,$chars);
-    $text = substr($text,0,strrpos($text,' '));
-    $text = $text."...";
-    return $text;
+function ps_truncate($text, $chars = 25) {
+  $text = $text." ";
+  $text = substr($text,0,$chars);
+  $text = substr($text,0,strrpos($text,' '));
+  $text = $text."...";
+  return $text;
 }
+/* ALIAS ps_truncate() */
+if(!function_exists('truncate')){
+  function truncate($text, $chars = 25) {
+    ps_truncate($text, $chars); 
+  }
+}
+
 
 /*
  * Plugin updater using GitHub
