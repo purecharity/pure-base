@@ -253,7 +253,7 @@ class Purecharity_Wp_Base {
     } elseif('demo' == $mode) {
       self::$api_url = "https://demo.purecharity.com/api/";
     } else {
-      self::$api_url = $_ENV["API_URL"];
+      self::$api_url = getenv("API_URL");
     }          
 
   }

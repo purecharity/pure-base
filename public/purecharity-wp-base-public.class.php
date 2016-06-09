@@ -157,7 +157,7 @@ class Purecharity_Wp_Base_Public {
 		}elseif('demo' == $mode){
 			return 'https://demo.purecharity.com';
 		}else{
-			return $_ENV["API_URL"];
+			return getenv("API_URL");
 		}
 	}
 }
