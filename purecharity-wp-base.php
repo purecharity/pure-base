@@ -35,7 +35,7 @@ define( 'PURECHARITY_BASE_PATH', plugin_dir_path( __FILE__ ) );
 define( 'PURECHARITY_PLUGIN_NAME', end( explode( '/', rtrim( PURECHARITY_BASE_PATH, '/' ) ) ) );
 
 /**
- * The code that runs during plugin activation.
+ * The code that runs during plugin activation. 
  */
 require_once PURECHARITY_BASE_PATH . 'includes/purecharity-wp-base-template-tags-helper.php';
 
