@@ -148,7 +148,7 @@ class Purecharity_Wp_Base_Admin {
                 ?>
                     <fieldset>
                         <input type="text" name="pure_base_settings[api_key][]" value="<?php echo $v; ?>">
-                        <img class="remove-key" height="26px" src="<?php echo plugins_url( 'purecharity-wp-base/public/img/remove.png' ) ?>">
+                        <img class="remove-key" height="26px" src="<?php echo PURECHARITY_BASE_URL; ?>public/img/remove.png">
                     </fieldset>
                 <?php 
                 }
@@ -156,10 +156,10 @@ class Purecharity_Wp_Base_Admin {
 		?>
                     <fieldset>
                         <input type="text" name="pure_base_settings[api_key][]" value="<?php echo $v; ?>">
-                        <img class="remove-key" height="26px" src="<?php echo plugins_url( 'purecharity-wp-base/public/img/remove.png' ) ?>">
+                        <img class="remove-key" height="26px" src="<?php echo PURECHARITY_BASE_URL ?>public/img/remove.png">
                     </fieldset>
 		<?php } ?>
-                    <img class="add-key" height="26px" src="<?php echo plugins_url( 'purecharity-wp-base/public/img/add.png' ) ?>">
+                    <img class="add-key" height="26px" src="<?php echo PURECHARITY_BASE_URL ?>public/img/add.png">
                 <?php
                 
 	}
@@ -199,7 +199,7 @@ class Purecharity_Wp_Base_Admin {
     <div class="wrap">
       <form action="options.php" method="post" class="pure-settings-form">
 				<?php
-					echo '<img align="left" src="' . plugins_url( 'purecharity-wp-base/public/img/purecharity.png' ) . '" > ';
+					echo '<img align="left" src="' . PURECHARITY_BASE_URL . 'public/img/purecharity.png" > ';
 				?>
 				<h2 style="padding-left:100px;padding-top: 20px;padding-bottom: 50px;border-bottom: 1px solid #ccc;">PureBase&#8482; Settings</h2>
 				

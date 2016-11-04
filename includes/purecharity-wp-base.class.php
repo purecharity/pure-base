@@ -87,7 +87,7 @@ class Purecharity_Wp_Base {
    */
   public function __construct() {
 
-    $this->plugin_name = 'purecharity-wp-base';
+    $this->plugin_name = PURECHARITY_PLUGIN_NAME;
     $this->version = '1.0.0';
 
     $this->load_dependencies();
@@ -121,24 +121,24 @@ class Purecharity_Wp_Base {
      * The class responsible for orchestrating the actions and filters of the
      * core plugin.
      */
-    require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/purecharity-wp-base-loader.class.php';
+    require_once PURECHARITY_BASE_PATH . 'includes/purecharity-wp-base-loader.class.php';
 
     /**
      * The class responsible for defining internationalization functionality
      * of the plugin.
      */
-    require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/purecharity-wp-base-i18n.class.php';
+    require_once PURECHARITY_BASE_PATH . 'includes/purecharity-wp-base-i18n.class.php';
 
     /**
      * The class responsible for defining all actions that occur in the Dashboard.
      */
-    require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/purecharity-wp-base-admin.class.php';
+    require_once PURECHARITY_BASE_PATH . 'admin/purecharity-wp-base-admin.class.php';
 
     /**
      * The class responsible for defining all actions that occur in the public-facing
      * side of the site.
      */
-    require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/purecharity-wp-base-public.class.php';
+    require_once PURECHARITY_BASE_PATH . 'public/purecharity-wp-base-public.class.php';
 
     $this->loader = new Purecharity_Wp_Base_Loader();
 
