@@ -128,6 +128,9 @@ if(!function_exists('truncate')){
  */
 add_action( 'init', 'purecharity_wp_base_updater' );
 function purecharity_wp_base_updater() {
+    if( ! get_option( 'pure_base_name' ) ) {
+        add_option( 'pure_base_name', PURECHARITY_PLUGIN_NAME, '', 'no' );
+    }
   define( 'WP_GITHUB_FORCE_UPDATE', true );
   if ( is_admin() ) { // note the use of is_admin() to double check that this is happening in the admin
     $config = array(

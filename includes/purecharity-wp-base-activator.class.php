@@ -30,7 +30,11 @@ class Purecharity_Wp_Base_Activator {
 	 * @since    1.0.0
 	 */
 	public static function activate() {
-
+            if( get_option( 'pure_base_name' ) ) {
+                update_option( 'pure_base_name', PURECHARITY_PLUGIN_NAME );
+            } else {
+                add_option( 'pure_base_name', PURECHARITY_PLUGIN_NAME, '', 'no' );
+            }
 	}
 
 }
