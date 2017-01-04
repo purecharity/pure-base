@@ -144,25 +144,9 @@ class Purecharity_Wp_Base_Admin {
 	public static function api_key_render(  )
 	{ 
 		$options = get_option( 'pure_base_settings' );
-                if(!$options || (is_array($options['api_key']) && empty($options['api_key']))) { // added for option when doesn't exist yet entered APi keys
                 ?>
-                    <fieldset>
-                        <input type="text" name="pure_base_settings[api_key][]" value="<?php echo $v; ?>">
-                        <img class="remove-key" height="26px" src="<?php echo PURECHARITY_BASE_URL; ?>public/img/remove.png">
-                    </fieldset>
+		<input type="text" name="pure_base_settings[api_key]" value="<?php echo @$options['api_key']; ?>">
                 <?php 
-                } else {
-                    foreach (@$options['api_key'] as $k => $v) {
-                    ?>
-                        <fieldset>
-                            <input type="text" name="pure_base_settings[api_key][]" value="<?php echo $v; ?>">
-                            <img class="remove-key" height="26px" src="<?php echo PURECHARITY_BASE_URL ?>public/img/remove.png">
-                        </fieldset>
-                    <?php } ?>
-                <?php } ?>
-                    <img class="add-key" height="26px" src="<?php echo PURECHARITY_BASE_URL ?>public/img/add.png">
-                <?php
-                
 	}
 
 	/**
