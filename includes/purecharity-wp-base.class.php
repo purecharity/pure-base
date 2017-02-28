@@ -267,32 +267,17 @@ class Purecharity_Wp_Base {
   public function api_call($endpoint) {
     $response = false;
 
-    if(ini_get('allow_url_fopen')){
+    $headers = array();
+    $headers[] = "Authorization: Token token=\"". self::$api_key ."\"\r\n";
 
-      $headers = array(
-        'http' => array(
-          'method' => 'GET',
-          'header' => "Authorization: Token token=\"". self::$api_key ."\"\r\n"
-        )
-      );
-      $context = stream_context_create($headers);
-      $response = file_get_contents(self::$api_url . $endpoint, false, $context);
-
-    }else{
-
-      $headers = array();
-      $headers[] = "Authorization: Token token=\"". self::$api_key ."\"\r\n";
-
-      $ch = curl_init();
-      curl_setopt($ch, CURLOPT_URL, self::$api_url . $endpoint);
-      curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-      curl_setopt($ch, CURLOPT_HEADER, true);
-      curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-      curl_setopt($ch, CURLOPT_SSLVERSION, 3); 
-      $response = curl_exec($ch);
-      curl_close($ch);
-
-    }
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, self::$api_url . $endpoint);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+    $response = curl_exec($ch);
+    curl_close($ch);
 
     if ($response) {
       $response = json_decode($response);
