@@ -42,6 +42,9 @@ directory take precedence. For example, `/assets/screenshot-1.png` would win ove
 2. This is the second screen shot
 
 == Changelog ==
+= 1.4 = 
+* Removed old API method, relying only on cURL from now on
+
 = 1.3.2 = 
 * Truncate function name conflict treatment
 
