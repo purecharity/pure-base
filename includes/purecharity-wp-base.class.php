@@ -247,7 +247,7 @@ class Purecharity_Wp_Base {
     self::$api_key = $pure_base_options['api_key'];
 
     if ('production' == $mode) {
-      self::$api_url = "http://purecharity.com/api/";
+      self::$api_url = "https://purecharity.com/api/";
     } elseif('sandbox' == $mode) {
       self::$api_url = "https://staging.purecharity.com/api/";
     } elseif('demo' == $mode) {
