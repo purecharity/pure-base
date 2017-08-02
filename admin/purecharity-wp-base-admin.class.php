@@ -144,9 +144,9 @@ class Purecharity_Wp_Base_Admin {
 	public static function api_key_render(  )
 	{ 
 		$options = get_option( 'pure_base_settings' );
-		?>
+                ?>
 		<input type="text" name="pure_base_settings[api_key]" value="<?php echo @$options['api_key']; ?>">
-		<?php
+                <?php 
 	}
 
 	/**
@@ -184,7 +184,7 @@ class Purecharity_Wp_Base_Admin {
     <div class="wrap">
       <form action="options.php" method="post" class="pure-settings-form">
 				<?php
-					echo '<img align="left" src="' . plugins_url( 'purecharity-wp-base/public/img/purecharity.png' ) . '" > ';
+					echo '<img align="left" src="' . PURECHARITY_BASE_URL . 'public/img/purecharity.png" > ';
 				?>
 				<h2 style="padding-left:100px;padding-top: 20px;padding-bottom: 50px;border-bottom: 1px solid #ccc;">PureBase&#8482; Settings</h2>
 				

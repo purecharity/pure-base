@@ -30,25 +30,29 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
+define( 'PURECHARITY_BASE_URL', plugin_dir_url( __FILE__ ) );
+define( 'PURECHARITY_BASE_PATH', plugin_dir_path( __FILE__ ) );
+define( 'PURECHARITY_PLUGIN_NAME', end( explode( '/', rtrim( PURECHARITY_BASE_PATH, '/' ) ) ) );
+
 /**
- * The code that runs during plugin activation.
+ * The code that runs during plugin activation. 
  */
-require_once plugin_dir_path( __FILE__ ) . 'includes/purecharity-wp-base-template-tags-helper.php';
+require_once PURECHARITY_BASE_PATH . 'includes/purecharity-wp-base-template-tags-helper.php';
 
 /**
  * The GitHub updater.
  */
-require_once plugin_dir_path( __FILE__ ) . 'includes/purecharity-wp-base-updater.class.php';
+require_once PURECHARITY_BASE_PATH . 'includes/purecharity-wp-base-updater.class.php';
 
 /**
  * The code that runs during plugin activation.
  */
-require_once plugin_dir_path( __FILE__ ) . 'includes/purecharity-wp-base-activator.class.php';
+require_once PURECHARITY_BASE_PATH . 'includes/purecharity-wp-base-activator.class.php';
 
 /**
  * The code that runs during plugin deactivation.
  */
-require_once plugin_dir_path( __FILE__ ) . 'includes/purecharity-wp-base-deactivator.class.php';
+require_once PURECHARITY_BASE_PATH . 'includes/purecharity-wp-base-deactivator.class.php';
 
 /**
  * This action is documented in includes/purecharity-wp-base-activator.class.php
@@ -64,7 +68,7 @@ register_deactivation_hook( __FILE__, array( 'Purecharity_Wp_Base_Deactivator', 
  * The core plugin class that is used to define internationalization,
  * dashboard-specific hooks, and public-facing site hooks.
  */
-require_once plugin_dir_path( __FILE__ ) . 'includes/purecharity-wp-base.class.php';
+require_once PURECHARITY_BASE_PATH . 'includes/purecharity-wp-base.class.php';
 
 /**
  * Begins execution of the plugin.
@@ -124,11 +128,14 @@ if(!function_exists('truncate')){
  */
 add_action( 'init', 'purecharity_wp_base_updater' );
 function purecharity_wp_base_updater() {
+    if( ! get_option( 'pure_base_name' ) ) {
+        add_option( 'pure_base_name', PURECHARITY_PLUGIN_NAME, '', 'no' );
+    }
   define( 'WP_GITHUB_FORCE_UPDATE', true );
   if ( is_admin() ) { // note the use of is_admin() to double check that this is happening in the admin
     $config = array(
       'slug' => plugin_basename( __FILE__ ),
-      'proper_folder_name' => 'purecharity-wp-base',
+      'proper_folder_name' => PURECHARITY_PLUGIN_NAME,
       'api_url' => 'https://api.github.com/repos/purecharity/pure-base',
       'raw_url' => 'https://raw.githubusercontent.com/purecharity/pure-base/master/purecharity-wp-base/',
       'github_url' => 'https://github.com/purecharity/pure-base',
@@ -149,7 +156,7 @@ function purecharity_wp_base_updater() {
  * @since    1.2
  */
 function purecharity_plugin_template(){
-  return plugin_dir_path( __FILE__ ) . 'public/partials/purecharity-plugin-template.php';
+  return PURECHARITY_BASE_PATH . 'public/partials/purecharity-plugin-template.php';
 }
 
 /**
