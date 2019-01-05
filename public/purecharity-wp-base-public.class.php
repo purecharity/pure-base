@@ -136,7 +136,7 @@ class Purecharity_Wp_Base_Public {
 			$pageURL .= $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
 		}
 		if($cut_params){
-			return split('?', $pageURL);
+			return preg_split('?', $pageURL);
 		}else{
 			return $pageURL;
 		}
